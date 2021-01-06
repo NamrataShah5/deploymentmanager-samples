@@ -20,3 +20,4 @@ resources:
   type: pubsub.jinja
   properties:
     ackDeadlineSeconds: 15
+
