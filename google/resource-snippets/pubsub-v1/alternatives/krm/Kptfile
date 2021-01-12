@@ -6,17 +6,57 @@ packageMetadata:
   shortDescription: configure pubsub topic and subscription
 openAPI:
   definitions:
+   
+    # First topic 
     io.k8s.cli.setters.topic-name:
       description: name of PubSub topic
       x-k8s-cli:
         setter:
           name: topic-name
-          value: ${TOPIC_ID?}
+          value: ${TOPIC_NAME?}
           setBy: PLACEHOLDER
+   
+    # Second topic 
+    io.k8s.cli.setters.topic-name:
+      description: name of PubSub deadletter topic
+      x-k8s-cli:
+        setter:
+          name: topic2-name
+          value: ${TOPIC_NAME2?}
+          setBy: PLACEHOLDER
+    
+    # Subscription 
     io.k8s.cli.setters.subscription-name:
       description: name of PubSub subscription
       x-k8s-cli:
         setter:
           name: subscription-name
-          value: ${SUBSCRIPTION_ID?}
+          value: ${SUBSCRIPTION_NAME?}
           setBy: PLACEHOLDER 
+    
+    # ACK Deadline seconds
+    io.k8s.cli.setters.ack-deadline-seconds:
+      description: deadline to acknowledge message
+      x-k8s-cli:
+        setter:
+          name: ack-deadline-seconds
+          value: ${DEADLINE?}
+          setBy: PLACEHOLDER
+
+    # Message duration
+    io.k8s.cli.setters.message-duration:
+      description: message retention duration
+      x-k8s-cli:
+        setter:
+          name: message-retention
+          value: ${RETENTION?}
+          setBy: PLACEHOLDER
+    
+    # Retain acked messages 
+    io.k8s.cli.setters.retain-ack-message:
+      description: retain acked messages
+      x-k8s-cli:
+        setter:
+          name: retain-acked
+          value: ${TRUEFALSE?}
+          setBy: PLACEHOLDER
