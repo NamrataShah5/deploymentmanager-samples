@@ -1,0 +1,22 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: pubsub
+packageMetadata:
+  shortDescription: configure pubsub topic and subscription
+openAPI:
+  definitions:
+    io.k8s.cli.setters.topic-name:
+      description: name of PubSub topic
+      x-k8s-cli:
+        setter:
+          name: topic-name
+          value: ${TOPIC_ID?}
+          setBy: PLACEHOLDER
+    io.k8s.cli.setters.subscription-name:
+      description: name of PubSub subscription
+      x-k8s-cli:
+        setter:
+          name: subscription-name
+          value: ${SUBSCRIPTION_ID?}
+          setBy: PLACEHOLDER 
