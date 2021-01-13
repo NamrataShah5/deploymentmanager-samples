@@ -2,8 +2,8 @@ set -e
 
 # assumes that the following projects are created and kubectl context is set to a cluster in KRM_PROJECT
 #TF_PROJECT_ID=[TF_PROJECT_ID]
-KRM_PROJECT_ID=namratashah-test-295817
-DM_PROJECT_ID=namratashah-test-295817
+KRM_PROJECT_ID=PROJECT_ID
+DM_PROJECT_ID=PROJECT_ID
 
 # source ../../../../tools/alt-testing/create-projects.sh
 
