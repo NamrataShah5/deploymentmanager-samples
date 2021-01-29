@@ -12,12 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-imports:
-- path: pubsub.jinja
-
 resources:
-- name: pubsub
-  type: pubsub.jinja
-  properties:
-    ackDeadlineSeconds: 15
+  - type: pubsub.v1.topic
+    name: {topic_name}
+    properties:
+      topic: {topic}
+  - type: pubsub.v1.topic
+    name: {topic}
+    properties:
+      topic: {second_topic}
+  - type: pubsub.v1.subscription
+    name: {subscription_name}
+    properties:
+      topic: $(ref.{topic}.name)
+      subscription: {subscription}
+      ackDeadlineSeconds: {ackDeadlineSeconds}
+      messageRetentionDuration: {duration} #string, example: "600s"
+      retainAckedMessages: {TRUE or FALSE}
+      deadLetterPolicy:
+        deadLetterTopic: ${ref.{second_topic}.name}
+        maxDeliveryAttempts: 3
 
