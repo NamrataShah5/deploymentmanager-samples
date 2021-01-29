@@ -31,5 +31,5 @@ resources:
       retainAckedMessages: {TRUE or FALSE}
       deadLetterPolicy:
         deadLetterTopic: ${ref.{second_topic}.name}
-        maxDeliveryAttempts: 3
+        maxDeliveryAttempts: {attempts} 
 
