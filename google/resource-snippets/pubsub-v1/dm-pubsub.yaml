@@ -30,6 +30,6 @@ resources:
       messageRetentionDuration: {duration} #string, example: "600s"
       retainAckedMessages: {TRUE or FALSE}
       deadLetterPolicy:
-        deadLetterTopic: ${ref.{second_topic}.name}
+        deadLetterTopic: $(ref.{second_topic}.name)
         maxDeliveryAttempts: {attempts} 
 
